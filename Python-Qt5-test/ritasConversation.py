@@ -1,9 +1,13 @@
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QBoxLayout, QPushButton, QVBoxLayout, QHBoxLayout
 
 app = QApplication([])
+app.setStyle('Fusion')
 window = QWidget()
 
-title = QLabel("Rita's conversation")
+title = QHBoxLayout()
+title.insertSpacing(60, 60)
+title.addWidget(QLabel("Rita's conversation"))
+title.insertSpacing(60, 60)
 
 pathChooser = QHBoxLayout()
 pathChooser.addWidget(QLabel('Choose path'))
@@ -13,17 +17,17 @@ path = QHBoxLayout()
 path.addWidget(QLabel('Path:'))
 path.addWidget(QLabel('here is choosed path'))
 
-optionsText = QLabel('Options')
 
+optionsText = QHBoxLayout()
+optionsText.insertSpacing(100, 100)
+optionsText.addWidget(QLabel('Options'))
+optionsText.insertSpacing(100, 100)
 
 layout = QVBoxLayout()
-layout.addWidget(title)
+layout.addLayout(title)
 layout.addLayout(pathChooser)
 layout.addLayout(path)
-layout.addWidget(optionsText)
-#layout.addWidget(QLabel('Test app'))
-#layout.addWidget(QPushButton('Button1'))
-#layout.addWidget(QPushButton('Button2'))
+layout.addLayout(optionsText)
 window.setLayout(layout)
 window.show()
 app.exec_()
