@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if not posts %}
+        <div style="display: table; margin: 0 auto;">
+            <h1 style="text-align: center">Your search didn't return any results.</h1>
+        </div>
+    {% endif %}
+        {% for post in posts %}
+            <div class="post" style="display: table; margin: 0 auto;">
+                <h1 style="text-align: center"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|slice:":800" }} ...</p>
+                <div class="date">
+                    {{ post.published_date }} Author:
+                    {{ post.author }}
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

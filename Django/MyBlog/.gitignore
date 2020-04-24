@@ -1,0 +1,8 @@
+*.pyc
+*~
+__pycache__
+myvenv
+db.mysql
+.DS_Store
+MyBlog/settings.py
+MyBlog/wsgi.py

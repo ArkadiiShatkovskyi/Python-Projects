@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+    {% if not request.user.is_authenticated %}
+    <div class="post" style="display: table; margin: 0 auto;">
+        <h2 style="text-align: center">Sign in</h2>
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="color: black;">Sign in</button>
+            <a href="{% url 'register' %}">
+                <button type="button" style="color: black;">Register</button>
+            </a>
+        </form>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        <div class="post" style="margin-left: 50%; width: 100%">
+            <h2 style="text-align: center">You are now logged in {{ login }} :)</h2>
+        </div>
+    {% endif %}
+{% endblock %}
